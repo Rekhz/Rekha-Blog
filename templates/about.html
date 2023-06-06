@@ -1,0 +1,31 @@
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{ url_for('static', filename='img/about-bg.jpg')}})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>About Me</h1>
+            <span class="subheading">This is what I do.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p><strong>I'm Rekha.</strong></p>
+        <p>An enthusiastic and ambitious individual on a quest to become a proficient Python programmer. With a passion for technology and a burning desire to learn, I am driven to master the intricacies of Python programming and its vast applications.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  {% include "footer.html" %}
