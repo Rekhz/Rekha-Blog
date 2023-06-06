@@ -12,8 +12,11 @@ import secrets
 import smtplib,os
 import psycopg2
 
-my_email=os.environ["MY_EMAIL"]
-password=os.environ["MY_EMAIL_PASSWORD"]
+# my_email=os.environ["MY_EMAIL"]
+my_email=os.environ.get('MY_EMAIL')
+password=os.environ.get('MY_EMAIL_PASSWORD')
+
+# password=os.environ["MY_EMAIL_PASSWORD"]
 smtplib.SMTP("smtp.gmail.com", port=587)
 
 app = Flask(__name__)
@@ -22,7 +25,7 @@ ckeditor = CKEditor(app)
 Bootstrap(app)
 
 ##CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ["POSTGRES_DB_URL"]
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('POSTGRES_DB_URL')
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///blog.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
