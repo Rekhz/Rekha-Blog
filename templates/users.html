@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{ url_for('static', filename='img/users-bg.jpg')}})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Users</h1>
+            <span class="subheading">User Details.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody>
+
+<!--User Table Details-->
+        {%for i in all_users:%}
+            <tr>
+              <td>{{i.id}}</td>
+              <td>{{i.email}}</td>
+              <td>{{i.name}}</td>
+            </tr>
+    {%endfor%}
+    </tbody>
+  </table>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  {% include "footer.html" %}

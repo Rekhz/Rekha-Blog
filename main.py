@@ -329,6 +329,14 @@ def delete_comment():
     flash("You have successfully deleted the comment!")
     return redirect(url_for('show_post', post_id=request.args.get('post_id')))
 
+@app.route("/users",methods=['GET','POST'])
+@login_required
+@admin_only_check
+def user_details():
+    with app.app_context():
+        all_users = db.session.execute(db.select(UserDetails)).scalars().all()
+    return render_template("users.html", all_users=all_users, logged_in_or_not=current_user.is_authenticated,user_name=current_user.name)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
